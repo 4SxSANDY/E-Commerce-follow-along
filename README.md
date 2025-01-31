@@ -26,3 +26,6 @@ we'll learn how to design and organize data using MongoDB. A schema helps us def
 #### 4. Authentication
 Authentication ensures only the right people can access certain features. For example: - -Users need to log in to place orders or see their personal data.
 -It keeps the app secure by verifying users' identities.
+
+#### Milestone 6:
+In this milestone, I created a backend signup API that securely stores user data. Passwords are encrypted using bcrypt before saving to MongoDB. The API ensures secure user authentication and data privacy. All changes are committed and pushed.
