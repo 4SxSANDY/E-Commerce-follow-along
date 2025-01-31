@@ -4,7 +4,6 @@ import LoginPage from './pages/LoginPage';  // Import directly
 import SignUpPage from './pages/SignUpPage';
 import Home from './pages/Home';
 import "./App.css";
-
 const App = () => {
   return (
     <BrowserRouter>
