@@ -1,31 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
 const CreateProduct = () => {
     const [images, setImages] = useState([]);
-    const [previewImages, setPreviewImages] = useState([]); 
+    const [previewImages, setPreviewImages] = useState([]);
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
     const [tags, setTags] = useState("");
     const [price, setPrice] = useState("");
     const [stock, setStock] = useState("");
+    // const [imageUrl, setImageUrl] = useState(""); 
     const [email, setEmail] = useState("");
+
 
     const categoriesData = [
         { title: "Electronics" },
-        { title: "Fashion" },
+        { title: "Fashions" },
         { title: "Books" },
-        { title: "Home Appliances" },
+        { title: "Home Appliance" },
     ];
 
-    const handleImagesChange = (e) => {
+    const handleImageChange = (e) => {
         const files = Array.from(e.target.files);
-
-        setImages((prevImages) => prevImages.concat(files));
-
+        setImages(files);
         const imagePreviews = files.map((file) => URL.createObjectURL(file));
-        setPreviewImages((prevPreviews) => prevPreviews.concat(imagePreviews));
+        setPreviewImages(imagePreviews);
     };
 
     useEffect(() => {
@@ -34,29 +35,37 @@ const CreateProduct = () => {
         };
     }, [previewImages]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const productData = {
-            name,
-            description,
-            category,
-            tags,
-            price,
-            stock,
-            email,
-            images,
-        };
-        console.log("Product Data:", productData);
-        alert("Product created successfully!");
-        setImages([]);
-        setPreviewImages([]); 
-        setName("");
-        setDescription("");
-        setCategory("");
-        setTags("");
-        setPrice("");
-        setStock("");
-        setEmail("");
+        
+        if (!images.length) {
+            alert("Please select at least one image.");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("description", description);
+        formData.append("price", price);
+        formData.append("stock", stock);
+        formData.append("category", category);
+        formData.append("tags", tags);
+
+        images.forEach((image) => {
+            formData.append("images", image);
+        });
+
+        try {
+            const response = await axios.post("http://localhost:8000/api/products/create", formData, {
+                headers: { "Content-Type": "multipart/form-data" },
+            });
+
+            console.log("Success:", response.data);
+            alert("Product created successfully!");
+        } catch (error) {
+            console.error("Error:", error.response ? error.response.data : error.message);
+            alert("Failed to create product.");
+        }
     };
 
     return (
@@ -165,7 +174,7 @@ const CreateProduct = () => {
                         id="upload"
                         className="hidden"
                         multiple
-                        onChange={handleImagesChange} 
+                        onChange={handleImageChange} 
                         required
                     />
                     <label htmlFor="upload" className="cursor-pointer">

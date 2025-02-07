@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon Backend/server.js",
+    "start": "node Backend/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sriman",
   "license": "ISC",
+  "type": "commonjs",
   "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -18,6 +21,7 @@
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.5",
+    "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.10.0",
     "nodemon": "^3.1.9"
   }

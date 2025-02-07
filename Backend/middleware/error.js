@@ -6,7 +6,7 @@ module.exports = (err, req, res, next) => {
 
     // wrong mongodb id error
     if (err.name === "CastError") {
-        const message = `Resources not found with this id.. Invalid ${err.path}`;
+        const message = `Resources not found with this id. Invalid ${err.path}`;
         err = new ErrorHandler(message, 400);
     }
 
@@ -18,13 +18,13 @@ module.exports = (err, req, res, next) => {
 
     // wrong jwt error
     if (err.name === "JsonWebTokenError") {
-        const message = `Your url is invalid please try again letter`;
+        const message = "Your URL is invalid please try again letter";
         err = new ErrorHandler(message, 400);
     }
 
     // jwt expired
     if (err.name === "TokenExpiredError") {
-        const message = `Your url is expired please try again letter!`;
+        const message = "Your URL is expired please try again letter";
         err = new ErrorHandler(message, 400);
     }
 
@@ -32,4 +32,4 @@ module.exports = (err, req, res, next) => {
         success: false,
         message: err.message,
     });
-}
+};
