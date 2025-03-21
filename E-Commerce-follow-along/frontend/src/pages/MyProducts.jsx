@@ -6,7 +6,7 @@ export default function MyProducts() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const email = "santhanamk9604@gmail.com";
+    const email = "sandy@gmail.com";
    
     console.log(email); 
            

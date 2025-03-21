@@ -1,13 +1,15 @@
-import CartProduct from '../components/CartProduct'
+import CartProduct from '../components/CartProduct';
 import Nav from '../components/navbar';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 
 const Cart = () => {
 
     const [products, setProducts] = useState([]);
+    const navigate = useNavigate(); 
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/v2/product/cartproducts?email=${'santhanamk9604@gmail.com'}`)
+        fetch(`http://localhost:8000/api/v2/product/cartproducts?email=${'sandy@gmail.com'}`)
           .then((res) => {
             if (!res.ok) {
               throw new Error(`HTTP error! status: ${res.status}`);
@@ -43,6 +45,10 @@ const Cart = () => {
       }, []);
     
       console.log("Products:", products);
+      
+      const handlePlaceOrder = () => {
+        navigate('/select-address');
+      };
 
     return (
         <div className='w-full h-screen'>
@@ -58,6 +64,14 @@ const Cart = () => {
                                 <CartProduct key={product._id} {...product} />
                             ))
                         }
+                    </div>
+                    <div className='w-full p-4 flex justify-end'>
+                        <button
+                          onClick={handlePlaceOrder}
+                          className='bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600'
+                        >
+                          Place Order
+                        </button>
                     </div>
                 </div>
             </div>

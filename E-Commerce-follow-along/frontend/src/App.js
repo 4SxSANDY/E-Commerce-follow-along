@@ -11,6 +11,7 @@ import Cart from './pages/cart';
 import ProductDetails from './pages/ProductsDetails';
 import Profile from './pages/profile';
 import CreateAddress from './pages/createAddress';
+import SelectAddress from './pages/SelectAdress'
 
 
 
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/create-address" element={<CreateAddress />} />
+        <Route path="/selectaddress" element={<SelectAddress/>} />
      
       </Routes>
     </BrowserRouter>
