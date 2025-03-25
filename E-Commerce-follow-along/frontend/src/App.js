@@ -11,8 +11,9 @@ import Cart from './pages/cart';
 import ProductDetails from './pages/ProductsDetails';
 import Profile from './pages/profile';
 import CreateAddress from './pages/createAddress';
-import SelectAddress from './pages/SelectAdress'
-
+import SelectAddress from './pages/SelectAdress';
+import OrderConformation from './pages/OrderConformation';
+import Myorder from './pages/Myorder';
 
 
 const App = () => {
@@ -33,6 +34,8 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/create-address" element={<CreateAddress />} />
         <Route path="/selectaddress" element={<SelectAddress/>} />
+        <Route path="/orderconfermation" element={<OrderConformation/>} />
+        <Route path="/myorder" element={<Myorder/>} />
      
       </Routes>
     </BrowserRouter>

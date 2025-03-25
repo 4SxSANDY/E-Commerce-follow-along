@@ -231,6 +231,14 @@ Welcome to the *Ecommerce Follow Along Project*! This hands-on project focuses o
 -With those id we fetch the products order of the user.
 -Finally send all orders in response.
 
+## ⭐ Milestone 27: Create myorders page :
+-Created a my-orders page and added it to navbar for navigation.
+-Get request to my-orders endpoint which was created earlier milestone and display all the user orders.
+
+## ⭐ Milestone 28: Create a cancel button :
+-Created a cancel button for cancelling certain products if the product is cancel already this button should not be visible.
+-Created an endpoint which will receive the order-id and check the status of the of product.
+
 
 
 ---
