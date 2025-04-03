@@ -238,6 +238,9 @@ Welcome to the *Ecommerce Follow Along Project*! This hands-on project focuses o
 ## ⭐ Milestone 28: Create a cancel button :
 -Created a cancel button for cancelling certain products if the product is cancel already this button should not be visible.
 
+## ⭐ Milestone 29: Creating Paypal account :
+-Creating a paypal account was today's milestone which was completed.
+
 
 
 ---
