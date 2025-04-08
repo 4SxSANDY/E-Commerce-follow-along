@@ -241,7 +241,9 @@ Welcome to the *Ecommerce Follow Along Project*! This hands-on project focuses o
 ## ⭐ Milestone 29: Creating Paypal account :
 -Creating a paypal account was today's milestone which was completed.
 
-
+## ⭐ Milestone 30: Creating Paypal Buttons :
+-Getting a userid inside sandbox account.
+-Implement online payment using PayPal API using the client key created earlier.
 
 ---
 
