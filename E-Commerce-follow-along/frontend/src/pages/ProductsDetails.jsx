@@ -4,15 +4,15 @@ import axios from "axios";
 import Nav from "../components/navbar";
 import { IoIosAdd } from "react-icons/io";
 import { IoIosRemove } from "react-icons/io";
-
+import { useSelector } from "react-redux"; // Import useSelector to access Redux state
 export default function ProductDetails() {
 	const { id } = useParams();
 	const [product, setProduct] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const [quantity, setQuantity] = useState(1);
-	const email = "santhanamk9604@gmail.com"; 
-
+	// const email = "abhisa8888@gmail.com"; 
+	const email = useSelector((state) => state.user.email); // Get email from Redux store
 	useEffect(() => {
 		const fetchProduct = async () => {
 			try {

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Nav from "../components/navbar";
-
+import { useSelector } from "react-redux"; // Import useSelector to access Redux state
 const CreateAddress = () => {
     const navigate = useNavigate();
-
+    const userEmail = useSelector((state) => state.user.email); // Get email from Redux store
     const [country, setCountry] = useState("");
     const [city, setCity] = useState("");
     const [address1, setAddress1] = useState("");
@@ -22,7 +22,7 @@ const CreateAddress = () => {
             address2,
             zipCode,
             addressType,
-            email:"Sandy@gmail.com"
+            email: userEmail,
         };
 
         try {

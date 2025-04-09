@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Nav from '../components/navbar'; 
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux'; // Import useSelector to access Redux state
 
 const SelectAddress = () => {
     const [addresses, setAddresses] = useState([]);
@@ -9,10 +10,11 @@ const SelectAddress = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    const userEmail = 'santhanamk9604@gmail.com'; 
-
+    // const userEmail = 'abhisa8888@gmail.com'; 
+    const userEmail = useSelector((state) => state.user.email); // Get email from Redux store
 
     useEffect(() => {
+        if (!userEmail) return;
         const fetchAddresses = async () => {
             try {
                 const response = await fetch(`http://localhost:8000/api/v2/user/addresses?email=${encodeURIComponent(userEmail)}`);
@@ -46,9 +48,9 @@ const SelectAddress = () => {
         fetchAddresses();
     }, [userEmail]);
 
-    // const handleSelectAddress = (addressId) => {
-    //     navigate('/order-confirmation', { state: { addressId, email: userEmail } });
-    // };
+    const handleSelectAddress = (addressId) => {
+        navigate('/order-confirmation', { state: { addressId, email: userEmail } });
+    };
 
     if (loading) {
         return (

@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Nav from '../components/navbar'
-
+import { useSelector } from 'react-redux'; // Import useSelector to access Redux state
 const MyOrdersPage = () => {
     const [orders, setOrders] = useState([]);
-    const email = 'sibishree.m@kalvium.community';
+    
+    const email = useSelector((state) => state.user.email); // Get email from Redux store
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
     const fetchOrders = async () => {
+        if (!email) return;
         try {
             setLoading(true);
             setError('');
@@ -40,7 +42,7 @@ const MyOrdersPage = () => {
 
     useEffect(() => {
         fetchOrders();
-    }, []);
+    }, [email]);
 
     return (
         <>
@@ -95,8 +97,8 @@ const MyOrdersPage = () => {
                                         <div className="text-gray-700 ml-4 space-y-1">
                                             <p>
                                                 {order.shippingAddress.address1}
-                                                {`order.shippingAddress.address2 &&
-                                                    , ${order.shippingAddress.address2}`}
+                                                {order.shippingAddress.address2 &&
+                                                    `, ${order.shippingAddress.address2}`}
                                             </p>
                                             <p>
                                                 {order.shippingAddress.city}, {order.shippingAddress.zipCode}
