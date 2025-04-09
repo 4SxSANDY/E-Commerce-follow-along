@@ -242,6 +242,10 @@ Welcome to the *Ecommerce Follow Along Project*! This hands-on project focuses o
 -Getting a userid inside sandbox account.
 -Implement online payment using PayPal API using the client key created earlier.
 
+## ⭐ Milestone 31: Installing react-redux :
+-Created a folder store to use react-redux and installed react redux 
+-It will store the user mail inside global state.
+
 ---
 
 This concludes roadmap for our **Ecommerce Follow Along Project**! Happy coding! 🚀
