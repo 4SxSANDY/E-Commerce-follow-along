@@ -238,13 +238,7 @@ Welcome to the *Ecommerce Follow Along Project*! This hands-on project focuses o
 ## ⭐ Milestone 28: Create a cancel button :
 -Created a cancel button for cancelling certain products if the product is cancel already this button should not be visible.
 
-## ⭐ Milestone 30: Creating Paypal Buttons :
--Getting a userid inside sandbox account.
--Implement online payment using PayPal API using the client key created earlier.
 
-## ⭐ Milestone 31: Installing react-redux :
--Created a folder store to use react-redux and installed react redux 
--It will store the user mail inside global state.
 
 ---
 
